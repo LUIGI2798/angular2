@@ -1,0 +1,17 @@
+<div class="container">
+  <ul *ngFor="let user of ArrayofCompletedTodo">
+    <li
+      *ngFor="let todo of user.todos"
+      class="list-unstyled"
+      [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }"
+    >
+      <input
+        [(ngModel)]="todo.completed"
+        type="checkbox"
+        id="=completed-{{ todo.id }}"
+        name="completed-{{ todo.id }}"
+      />
+      {{ todo.todo }}
+    </li>
+  </ul>
+</div>
